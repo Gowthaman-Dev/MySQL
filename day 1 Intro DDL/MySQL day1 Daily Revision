@@ -1,0 +1,520 @@
+1.=> DDL (Data Definition Language)
+Database & table structure create, change, delete panna use pannura commands.
+
+Database and table structure handling
+
+Columns, constraints, data types maintain pannurathu
+
+Data ah illa, table structure mela work
+
+One English sentence:
+“DDL commands are used to define and modify the structure of a database.”
+
+
+
+📌 DDL Commands – Correct Spelling
+
+
+| Command  | Correct Spelling | Tamil Meaning                               |
+| -------- | ---------------- | ------------------------------------------- |
+| CREATE   | Create           | Database/Table create                       |
+| ALTER    | Alter            | Structure change (add column etc.)          |
+| DROP     | Drop             | Database/Table delete (permanently)         |
+| TRUNCATE | Truncate         | Table data full-ah delete, structure remain |
+| RENAME   | Rename           | Table name change                           |
+| COMMENT  | Comment          | Table/column-ku description add             |
+
+
+
+DDL focuses only on the structure of the database and tables.
+It manages tables, columns, and constraints.
+DDL commands are used for creating, modifying, and deleting database structures
+
+
+
+
+2.=>what you are explaining = Client – Server Database Architecture
+
+Tamil Explanation:
+
+ஒவ்வொருவரும் தங்கள் system-la MySQL Workbench install pannirupanga → இது client
+
+Data எல்லாம் ஒவ்வொருவரும் தனியா வைத்துக்கிட்டா யாருக்கும் வேற யாருடைய data காண முடியாது
+
+எல்லா systems-kku ஒரே data வேண்டும் means → ஒரே இடத்துல centralized-ah store panna vendum
+
+அந்த இடம் தான் Server
+
+Server-la store panni, clients Workbench-la connect aagi data access pannuvanga
+
+English sentence:
+“The server stores the database centrally, and MySQL Workbench acts as the client to access it.”
+
+
+| Component                  | Role               | Tamil Meaning                           |
+| -------------------------- | ------------------ | --------------------------------------- |
+| **Server**                 | Stores database    | Central place to keep data              |
+| **Client (Workbench/App)** | Access server data | Users use it to view/modify data        |
+| **IP / Host**              | Address of server  | Server engayo irukku nu sollura address |
+
+
+
+🧠 Important Concept
+
+“My Workbench can only access my local server unless I connect it to another server.”
+
+🔥 அதாவது:
+Button press pannina → ennoda system-oda MySQL ku dhan povum
+Innorutharoda system la execute aagathu
+
+
+🗣️ Your idea — Corrected Short Summary
+
+“Collection of databases is kept on a server.
+Each system has MySQL Workbench which connects to that centralized server using IP/localhost.
+Only server has the main database — clients can just access it.”
+
+
+
+| Term               | Meaning                     |
+| ------------------ | --------------------------- |
+| Localhost          | Own computer server         |
+| Remote Server      | Another system/server       |
+| Port Number (3306) | MySQL communication channel |
+| Host IP            | Server address to connect   |
+
+
+
+
+
+
+3.=>Database & Workbench Relationship — Correct Explanation
+
+MySQL Workbench
+
+*இது ஒரு software (tool)
+
+*Database create, edit, view, query panna use pannuvom
+
+*Workbench-ku data store panna power illa 🙅‍♂️
+Data store aagura place = MySQL Server
+
+One English sentence:
+“MySQL Workbench is just a client tool to manage databases stored in MySQL server.”
+
+💡 What is inside MySQL?
+
+| Level              | Tamil Meaning         | Example               |
+| ------------------ | --------------------- | --------------------- |
+| **Server**         | Database store pannum | MySQL Database Engine |
+| **Database**       | Collection of tables  | school                |
+| **Table**          | Collection of records | students              |
+| **Record (Row)**   | Single data entry     | ‘Ram, 10th’           |
+| **Column (Field)** | Data category         | name, class           |
+
+
+📌 Corrected Concept
+
+❌ Original misunderstanding:
+
+“Workbench is collection of databases”
+
+✔️ Correct version:
+
+“MySQL Server contains collections of databases.
+Each database contains collections of tables.”
+
+🧠 Final Correct Statements (write in notebook)
+
+*Database = collection of tables
+
+*Table = collection of rows
+
+*Row = collection of columns
+
+*Workbench = client tool
+
+*Server = where database actually stores
+
+🎯 Simple Diagram
+
+MySQL Server
+     ↓
+  Database (school)
+          ↓
+     Tables (students, teachers…)
+                ↓
+          Rows (Records)
+
+
+
+
+4.=>What is a Database?
+
+Correct Answer:
+
+A database is a collection of tables used to store data in the form of rows and columns.
+
+Tamil:
+
+Database-na rows & columns-oda structure-la data store panna use aagura collection of tables.
+
+One English sentence to tell outside:
+
+“Database = Collection of Tables”
+
+✔️ Structure Hierarchy (Very Important)
+
+
+MySQL Server
+    ↓
+Database (Collection of tables)
+    ↓
+Tables (Collection of rows)
+    ↓
+Rows (Collection of column values)
+    ↓
+Columns (Fields – structure)
+
+
+✔️ Who Controls What?
+
+
+| Element           | Structure control | Data control |
+| ----------------- | ----------------- | ------------ |
+| **Database**      | DDL ✔️            | DML ✖️       |
+| **Table**         | DDL ✔️            | DML ✖️       |
+| **Column**        | DDL ✔️            | DML ✖️       |
+| **Row (Records)** | DDL ✖️            | DML ✔️       |
+
+
+🔥 Key Line (Remember this!)
+
+DDL commands handle structure (Database, Table, Column)
+DML commands handle data (Rows
+
+
+❌ Your Sentences – Mistakes Fixed
+
+
+| Mistake                                                       | Correct                                              |
+| ------------------------------------------------------------- | ---------------------------------------------------- |
+| “collection of database la senthathuthan oru GUI”             | GUI is not a collection. Workbench = GUI client only |
+| “Row va handle panna mudiyathu with DDL”                      | ✔ correct: Rows are handled only by DML              |
+| “collection of database vachi control panna mudiyum with DDL” | ✔ yes: create, drop, rename database                 |
+
+
+
+✔️ Correct Summary (Easy to memorize)
+
+Database = Collection of Tables
+
+Table = Collection of Rows
+
+Row = Collection of Column Values
+
+Column = Field name + datatype
+
+DDL → Structure only
+
+DML → Data only
+
+
+
+Example commands
+
+
+-- DDL
+CREATE DATABASE school;
+CREATE TABLE student(id INT, name VARCHAR(20));
+
+-- DML
+INSERT INTO student VALUES(1,'Gowtham');
+
+
+
+
+
+
+
+5.=>Default delimiter = ;
+
+
+
+6.=>✔️ MySQL Important Data Types
+
+1️.Number Types
+
+| Data type    | Use                                | Example      |
+| ------------ | ---------------------------------- | ------------ |
+| INT          | Whole numbers                      | 10, 200, -50 |
+| BIGINT       | Very large numbers                 | Phone number |
+| FLOAT        | Small decimal values (approximate) | 12.56        |
+| DOUBLE       | More accurate decimals             | 78.987654    |
+| DECIMAL(x,y) | Money values (exact)               | 999.99       |
+
+
+2️.Text (String) Types
+
+
+| Type       | Use                  | Example                   |
+| ---------- | -------------------- | ------------------------- |
+| VARCHAR(n) | Variable-length text | name VARCHAR(50)          |
+| CHAR(n)    | Fixed length text    | gender CHAR(1) → 'M'      |
+| TEXT       | Large text           | Description, blog content |
+
+
+3️.Date & Time Types
+
+
+| Type      | Use                                    | Example               |
+| --------- | -------------------------------------- | --------------------- |
+| DATE      | yyyy-mm-dd                             | `2025-01-01`          |
+| TIME      | hh:mm:ss                               | `10:45:20`            |
+| DATETIME  | Full date + time                       | `2025-01-01 10:45:20` |
+| TIMESTAMP | Auto system time (mostly used for log) |                       |
+
+
+
+4️.Boolean Type
+
+| Type                 | Meaning              |
+| -------------------- | -------------------- |
+| BOOLEAN / TINYINT(1) | True or False values |
+
+
+5️.Other Special Types
+
+
+| Type | Use                                            |
+| ---- | ---------------------------------------------- |
+| BLOB | Images, files                                  |
+| ENUM | Predefined values only (e.g., gender: 'M','F') |
+
+
+
+🧠 Simple rule to remember
+
+
+| Data Type | Use     |
+| --------- | ------- |
+| INT       | Numbers |
+| VARCHAR   | Text    |
+| DATE      | Date    |
+
+
+
+❗ Pro Tip
+
+Phone number → INT use panna koodathu ❌
+(reason: +91, 0 starting lost aagum)
+Use → VARCHAR(15) ✔️
+
+
+
+Example - Better sladevelopers Table
+
+
+CREATE TABLE sladevelopers(
+  id INT PRIMARY KEY,
+  name VARCHAR(50),
+  age INT,
+  salary DECIMAL(10,2),
+  join_date DATE
+);
+
+
+
+
+
+7.=> what are all the constains in sql ?
+
+
+Data correct-ah, secure-ah store panna constraints use pannuvom.
+
+One English sentence:
+“Constraints are rules applied to table columns to control valid data.”
+
+
+✔️ SQL Constraints List
+
+| Constraint         | Use                    | Tamil Meaning        | Example        |
+| ------------------ | ---------------------- | -------------------- | -------------- |
+| **PRIMARY KEY**    | Unique + Not Null      | Unmai unique ID      | id             |
+| **FOREIGN KEY**    | Link tables            | Table connect pannum | dept_id        |
+| **NOT NULL**       | Empty aagatha          | Value must give      | name           |
+| **UNIQUE**         | Duplicate allowed illa | Orru value only      | email          |
+| **CHECK**          | Condition enforce      | Rule fix             | age > 18       |
+| **DEFAULT**        | No value kudukka       | Auto value set       | default status |
+| **AUTO_INCREMENT** | Auto number increase   | ID auto generate     | 1,2,3…         |
+
+
+
+🧠 Easy Summary
+
+🔹 PRIMARY KEY = unique + not null
+🔹 FOREIGN KEY = relationship between tables
+🔹 NOT NULL = must enter value
+🔹 UNIQUE = duplicate not allowed
+🔹 CHECK = rule to validate data
+🔹 DEFAULT = value auto fill
+🔹 AUTO_INCREMENT = numbering automatically
+
+
+
+🔥 Example Table with Constraints
+
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY AUTO_INCREMENT,
+  emp_name VARCHAR(50) NOT NULL,
+  email VARCHAR(50) UNIQUE,
+  age INT CHECK(age > 18),
+  status VARCHAR(10) DEFAULT 'Active'
+);
+
+
+
+🎯 Quick Tip for Memory
+
+P F N U C D A
+Primary
+Foreign
+Not Null
+Unique
+Check
+Default
+Auto Increment
+
+
+
+
+
+8.=>✔️ Why ID and Primary Key are MUST in IT Companies?
+
+
+1. IDENTIFICATION (Unique user identify panna)
+
+*Per-la duplicate irukkum
+
+*Per change aagalam (marriage, typo, etc.)
+
+*Aana ID change aagakoodathu
+
+So primary key = System identification
+Example: user_id, emp_id
+
+2️.User Name does NOT guarantee uniqueness ❌
+
+Example:
+
+*2 per “Gowtham”
+
+*10 per “Kumar”
+
+*“S. Kumar”, “Kumar S” → same person confused
+
+So Name column UNIQUE aagakoodathu illa
+
+ID → UNIQUE ✔️
+
+3️.AUTO_INCREMENT use pannara reason
+
+Example:
+
+
+| Data Insert        | ID                   |
+| ------------------ | -------------------- |
+| 6th record added   | 6                    |
+| 6th record deleted | (6 removed)          |
+| New record insert  | **7** (not 6)** ✔️** |
+
+
+📌 Because:
+
+Database history & structure never gets confused
+ID → Oru naal generate pannina number repeat aagakoodathu
+
+Even if row deleted — ID never reused
+This is correct behavior 👌
+
+4️.USER_VIEW vs SYSTEM_VIEW (Super Important 🎯)
+
+
+
+| View        | What user sees                  | What system stores       |
+| ----------- | ------------------------------- | ------------------------ |
+| User view   | Sl.No (1,2,3,4…)                | Can be missing if delete |
+| System view | Primary Key (like 68, 69, 1001) | Never reused             |
+
+
+
+🧠 Example:
+User sees:
+
+| No | Name    |
+| -- | ------- |
+| 1  | Ram     |
+| 2  | Raj     |
+| 3  | Krishna |
+
+
+But system internally:
+
+
+| user_id | name    |
+| ------- | ------- |
+| 68      | Ram     |
+| 69      | Raj     |
+| 75      | Krishna |
+
+
+
+👉 User never sees internal ID
+👉 Developer & database use internal ID for reference
+
+5️.WHY Internal ID gaps are OK?
+
+❌ Wrong thinking:
+
+6 delete pannina → Sl.No gap so waste
+
+✔ Correct thinking:
+
+Gap irundhaalum safety + history preserve aagum
+ID reused pannalainna
+→ Confusion illa
+→ Data corruption avoid
+
+📌 Final Simple Summary (Notebook-ku ready)
+
+
+
+| Rule                                | Reason                     |
+| ----------------------------------- | -------------------------- |
+| Every table must have a Primary Key | Unique identification      |
+| Auto increment for ID               | Never repeat IDs           |
+| Users should not see internal ID    | Security + clean UI        |
+| Deletion gap acceptable             | Data safety & traceability |
+
+
+
+Real Company Example
+
+
+
+CREATE TABLE users(
+  user_id INT PRIMARY KEY AUTO_INCREMENT,  -- System ID
+  display_no INT,                          -- Optional UI number
+  name VARCHAR(50) NOT NULL,
+  email VARCHAR(50) UNIQUE
+);
+
+
+
+
+
+9.=> Interview Winning Sentence ✨
+
+“SQL is a relational database, so every table must have a relationship with another table using Primary Key and Foreign Key.
+We never design isolated tables.”
+
